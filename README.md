@@ -1,5 +1,5 @@
 # Flashcard Generator App  
-
+By Anushka Purohit, Bharath Sathappan, Jeffery Lai
 This app generates flashcards from text or uploaded PDF files using the OpenAI API.  
 
 ---
