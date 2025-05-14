@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #fce4ec;
+            color: #333;
+        }
+
+        h1 {
+            color: #d81b60;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 80%;
+            height: 100px;
+            margin-bottom: 10px;
+            border: 2px solid #d81b60;
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 16px;
+            resize: none;
+        }
+
+        button {
+            margin: 10px;
+            padding: 12px 24px;
+            font-size: 18px;
+            background-color: #d81b60;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c2185b;
+        }
+
+        .flashcard {
+            border: 1px solid #f06292;
+            padding: 40px;
+            margin: 20px auto;
+            width: 300px;
+            height: 150px;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .flashcard:hover {
+            background-color: #f8bbd0;
+            transform: scale(1.05);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .flashcardContent {
+            font-size: 22px;
+            color: #333;
+        }
+
+        .flashcardContent:focus {
+            outline: none;
+        }
+
+        .flashcardContainer button {
+            background-color: #d81b60;
+        }
+
+        .flashcardContainer button:hover {
+            background-color: #c2185b;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Flashcard Generator</h1>
+    <textarea id="notesInput" placeholder="Enter your class notes here or upload a pdf below..."></textarea>
+    <br>
+    <input type="file" id="pdfUpload" accept="application/pdf">
+    <br>
+    <br>
+    <label>
+        Number of Flashcards:
+        <input type="number" id="numFlashcards" min="1" placeholder="Enter number (Optional)">
+    </label>
+    <br>
+    <br>
+    <label>
+        Definition Customization or Context:
+        <input type="text" id="requiredTerms" placeholder="e.g. make the definition a question with the term as the answer (default is none)" style="width: 500px; height: 40px;">
+    </label>
+    <br>
+    <br>
+    <br>
+    <br>
+    <label>
+        Show Definition First:
+        <input type="checkbox" id="orderToggle">
+    </label>
+    <br>
+    <button onclick="generateFlashcards()">Generate Flashcards</button>
+    <div id="flashcardContainer" class="hidden">
+        <div class="flashcard" id="flashcard">
+            <p id="flashcardContent"></p>
+        </div>
+        <button onclick="showPreviousFlashcard()">Previous</button>
+        <button onclick="showNextFlashcard()">Next</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
